@@ -1,0 +1,14 @@
+name: Alist保活 Keep Alist Alive # 任务名称
+on:
+  schedule:
+    - cron: '*/5 * * * *'  # 每5分钟运行一次（语法详见下方说明）
+  workflow_dispatch:       # 允许手动触发
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping Alist
+        run: |
+          curl -s "https://potential-doodle-5ggw9p495qwrf49wj-5244.app.github.dev/" >/dev/null
+          echo "Alist 保活成功！"
